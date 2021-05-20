@@ -1,18 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 
+/// <summary>
+/// Taskの実験
+/// </summary>
 public class TaskTest : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        var T1 = Test1();
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// テストその１
+    /// </summary>
+    private async UniTask Test1()
     {
-        
+        Debug.Log("Start Test1");
+        await UniTask.Delay(3000);
+        Debug.Log("End Test1");
     }
 }
