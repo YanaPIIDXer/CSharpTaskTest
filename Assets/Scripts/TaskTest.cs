@@ -20,6 +20,8 @@ public class TaskTest : MonoBehaviour
         // awaitしない版
         var Test2Observable = Test2().ToObservable<string>();
         Test2Observable.Subscribe((Str) => Debug.Log("ToObservable: " + Str));
+
+        Debug.Log("All Completed!");
     }
 
     /// <summary>
