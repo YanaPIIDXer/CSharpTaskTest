@@ -8,9 +8,12 @@ using Cysharp.Threading.Tasks;
 /// </summary>
 public class TaskTest : MonoBehaviour
 {
-    void Awake()
+    async void Awake()
     {
-        var T1 = Test1();
+        await Test1();
+
+        var TestTask = await Test2();
+        Debug.Log(TestTask);
     }
 
     /// <summary>
@@ -21,5 +24,15 @@ public class TaskTest : MonoBehaviour
         Debug.Log("Start Test1");
         await UniTask.Delay(3000);
         Debug.Log("End Test1");
+    }
+
+    /// <summary>
+    /// テストその２
+    /// </summary>
+    /// <returns>文字列</returns>
+    private async UniTask<string> Test2()
+    {
+        await UniTask.Delay(3000);
+        return "End Task2";
     }
 }
